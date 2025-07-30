@@ -25,7 +25,7 @@ class TestGame:
     def test_is_valid(self):
         # setup
         game = Game()
-        test_word = "BRACELO"
+        test_word = "BAR"
         test_grid = "BARCELONA"
 
         # exercise: usando o objeto que estamos testando
@@ -57,3 +57,4 @@ class TestGame:
         new_game = Game()
         new_game.grid = list('KWIENFUQW') # Force the grid to a test case:
         assert new_game.is_valid('FEUN') is False
+        assert new_game.grid == list('KWIENFUQW')

@@ -3,6 +3,7 @@
 
 import random
 import string
+import requests
 
 
 class Game:
@@ -12,7 +13,11 @@ class Game:
 
     def is_valid(self, word: str) -> bool:
         """Return True if and only if the word is valid, given the Game's grid"""
-        if not word:
+        api_call = requests.get(f"https://dictionary.lewagon.com/{word}")
+        json = api_call.json()
+        torf = json.get("found", "ERROR")
+
+        if not word or torf == False:
             return False
 
         word = word.upper()
